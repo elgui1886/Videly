@@ -13,14 +13,16 @@ namespace Vidly
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //definisco una customRoute
+            //abilito le gestione "nuova" delle routes
+            routes.MapMvcAttributeRoutes();
 
-            routes.MapRoute(
-                 "MyCustomRoute",
-                 "Movies/release/{fristParam}/{secondParam}",
-                 new { controller = "Movies", action = "ByReleaseDate", fristParam = UrlParameter.Optional, secondParam = UrlParameter.Optional }
-                 //new { fristParam = "//d{4}", secondParam = "//d{4}" } //costrizioni sui parametri in ingresso al metodo
-                );
+            //definisco una customRoute
+            //routes.MapRoute(
+            //     "MyCustomRoute",
+            //     "Movies/release/{fristParam}/{secondParam}",
+            //     new { controller = "Movies", action = "ByReleaseDate", fristParam = UrlParameter.Optional, secondParam = UrlParameter.Optional }
+            //     //new { fristParam = "//d{4}", secondParam = "//d{4}" } //costrizioni sui parametri in ingresso al metodo
+            //    );
 
             routes.MapRoute(
                 name: "Default",
